@@ -3,6 +3,7 @@
 ## Project setup
 ```
 yarn install
+yarn global add @vue/cli
 ```
 
 ### Compiles and hot-reloads for development
