@@ -5,16 +5,23 @@ jobs:
     name: Test
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: borales/actions-yarn@v2.3.0
+      - name: Prep Dependancies
+        run: sudo apt install xvfb -y
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Yarn Install
+        uses: borales/actions-yarn@v2.3.0
         with:
           cmd: install # will run `yarn install` command
-      - uses: borales/actions-yarn@v2.3.0
+      - name: Add Vue/CLI
+        uses: borales/actions-yarn@v2.3.0
         with:
           cmd: global add @vue/cli
-      - uses: borales/actions-yarn@v2.3.0
+      - name: Yan Build
+        uses: borales/actions-yarn@v2.3.0
         with:
           cmd: build
-      - uses: borales/actions-yarn@v2.3.0
+      - name: Run End-to-End Tests
+        uses: borales/actions-yarn@v2.3.0
         with:
           cmd: test:e2e:headless
