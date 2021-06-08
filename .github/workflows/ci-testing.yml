@@ -2,10 +2,10 @@ name: CI Testing
 on: [push]
 jobs:
   build:
-    name: Test
+    name: Build and Test
     runs-on: ubuntu-latest
     container:
-      image: cypress:included
+      image: cypress:included-3.8.3
     steps:
      # - name: Prep Dependancies
      #   run: sudo apt install xvfb -y
