@@ -4,11 +4,7 @@ jobs:
   build:
     name: Build and Test
     runs-on: ubuntu-latest
-    container:
-      image: cypress:included-3.8.3
     steps:
-     # - name: Prep Dependancies
-     #   run: sudo apt install xvfb -y
       - name: Checkout
         uses: actions/checkout@v2
       - name: Yarn Install
@@ -26,4 +22,4 @@ jobs:
       - name: Run End-to-End Tests
         uses: borales/actions-yarn@v2.3.0
         with:
-          cmd: test:e2e:headless
+          cmd: test:e2e
